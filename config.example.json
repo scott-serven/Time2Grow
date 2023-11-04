@@ -60,6 +60,12 @@
     "plant": 12,
     "water": 6,
     "attack": 12,
-    "thug": 12
+    "thug": 12,
+    "blood": 6,
+    "eclipse": 5
+  },
+
+  "FEATURES": {
+    "audrey": false
   }
 }

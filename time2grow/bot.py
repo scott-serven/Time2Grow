@@ -38,6 +38,7 @@ from .plant import Plant, PlantType
 
 logger: logging.Logger = logging.getLogger(__name__)
 
+AUDREY_FEATURE = 'audrey'
 
 class Bot(commands.Bot):
     def __init__(self, *, server: Server, database: Database) -> None:
@@ -117,6 +118,9 @@ class Bot(commands.Bot):
     @commands.command()
     @commands.cooldown(1, core.config["COOLDOWNS"]["eclipse"] * 60, commands.Bucket.user)
     async def eclipse(self, ctx: commands.Context) -> None:
+        if not core.feature_enabled(AUDREY_FEATURE):
+            return
+
         username: str = ctx.author.name
 
         if username not in self.plants:
@@ -135,6 +139,9 @@ class Bot(commands.Bot):
     @commands.command()
     @commands.cooldown(1, core.config["COOLDOWNS"]["blood"] * 60, commands.Bucket.user)
     async def blood(self, ctx: commands.Context) -> None:
+        if not core.feature_enabled(AUDREY_FEATURE):
+            return
+
         username: str = ctx.author.name
 
         if username not in self.plants:
