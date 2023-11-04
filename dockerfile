@@ -9,3 +9,5 @@ RUN python -m venv venv \
  && pip install -U -r requirements.txt
 
 EXPOSE 8000
+
+CMD ["./docker_init.sh"]
